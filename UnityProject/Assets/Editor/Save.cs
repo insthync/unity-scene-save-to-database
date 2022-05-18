@@ -22,6 +22,7 @@ public class Save
             objects = list,
         });
         var request = new UnityWebRequest("http://localhost/unity-scene-save-to-database", "POST");
+        request.SetRequestHeader("Content-Type", "application/json");
         request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(content.ToCharArray()));
         request.uploadHandler.contentType = "application/json";
         request.downloadHandler = new DownloadHandlerBuffer();
